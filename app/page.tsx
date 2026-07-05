@@ -1,10 +1,14 @@
 import { Bot, FileText, MessageSquare, CalendarClock } from 'lucide-react'
 import { SiteHeader } from '@/components/site-header'
 import { Hero } from '@/components/hero'
+import { StatsDownload } from '@/components/stats-download'
 import { FeaturesOverview } from '@/components/features-overview'
 import { FeatureSection } from '@/components/feature-section'
+import { LivePreview } from '@/components/live-preview'
 import { AlertsSection } from '@/components/alerts-section'
 import { CtaSection } from '@/components/cta-section'
+import { Testimonials } from '@/components/testimonials'
+import { FeedbackSection } from '@/components/feedback-section'
 import { SiteFooter } from '@/components/site-footer'
 
 export default function Page() {
@@ -13,6 +17,7 @@ export default function Page() {
       <SiteHeader />
       <main>
         <Hero />
+        <StatsDownload />
         <FeaturesOverview />
 
         <FeatureSection
@@ -77,8 +82,11 @@ export default function Page() {
           reverse
         />
 
+        <LivePreview />
         <AlertsSection />
         <CtaSection />
+        <Testimonials />
+        <FeedbackSection />
       </main>
       <SiteFooter />
     </div>
