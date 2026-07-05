@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, Star } from 'lucide-react'
+import { ArrowRight, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { PhoneFrame } from '@/components/phone-frame'
 
@@ -45,32 +45,6 @@ export function Hero() {
             </Button>
           </div>
 
-          <div className="mt-8 flex items-center gap-3">
-            <div className="flex -space-x-2">
-              {['bg-primary', 'bg-chart-2', 'bg-chart-3', 'bg-chart-4'].map(
-                (c, i) => (
-                  <span
-                    key={i}
-                    className={`flex size-8 items-center justify-center rounded-full border-2 border-background text-xs font-bold text-primary-foreground ${c}`}
-                  >
-                    {['R', 'S', 'A', 'J'][i]}
-                  </span>
-                ),
-              )}
-            </div>
-            <div className="text-sm">
-              <div className="flex items-center gap-1 text-foreground">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="size-3.5 fill-primary text-primary"
-                    aria-hidden="true"
-                  />
-                ))}
-              </div>
-              <p className="text-muted-foreground">Loved by focused students</p>
-            </div>
-          </div>
         </div>
 
         {/* Phone mockup */}

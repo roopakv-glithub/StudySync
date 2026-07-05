@@ -35,19 +35,11 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-2">
           <Button
-            variant="ghost"
-            nativeButton={false}
-            className="hidden text-muted-foreground hover:text-foreground sm:inline-flex"
-            render={<a href="#top" />}
-          >
-            Sign in
-          </Button>
-          <Button
             className="rounded-full font-semibold"
             nativeButton={false}
-            render={<a href="#cta" />}
+            render={<a href="#download" />}
           >
-            Get Started
+            Download
           </Button>
         </div>
       </div>
