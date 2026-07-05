@@ -5,7 +5,10 @@ import { Download, Users, ArrowDownToLine } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { getDownloadCount, incrementDownloadCount } from '@/lib/supabase'
 
-const APK_PATH = '/studysync.apk'
+// ⬇️ PASTE YOUR GITHUB RELEASE APK URL HERE ⬇️
+// Example: 'https://github.com/roopakv-glithub/StudySync/releases/download/v1.0/studysync.apk'
+// Until you set this, the button stays disabled with a "coming soon" note.
+const APK_URL = ''
 
 function formatCount(n: number) {
   return new Intl.NumberFormat('en-US').format(n)
@@ -26,16 +29,19 @@ export function StatsDownload() {
   }, [])
 
   async function handleDownload() {
+    if (!APK_URL) return
     setDownloading(true)
     // Optimistically bump the visible number, then confirm with the DB.
     setCount((c) => (c === null ? c : c + 1))
     const updated = await incrementDownloadCount()
     if (updated !== null) setCount(updated)
 
-    // Trigger the APK download.
+    // Trigger the APK download. GitHub Release URLs serve the file as a direct
+    // download, so navigating to it starts the download without leaving the page.
     const link = document.createElement('a')
-    link.href = APK_PATH
+    link.href = APK_URL
     link.download = 'StudySync.apk'
+    link.rel = 'noopener'
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -84,14 +90,18 @@ export function StatsDownload() {
             <Button
               size="lg"
               onClick={handleDownload}
-              disabled={downloading}
+              disabled={downloading || !APK_URL}
               className="rounded-full px-7 font-semibold"
             >
               <Download className="size-4" aria-hidden="true" />
-              {downloading ? 'Starting…' : 'Download for Android'}
+              {!APK_URL
+                ? 'Coming soon'
+                : downloading
+                  ? 'Starting…'
+                  : 'Download for Android'}
             </Button>
             <p className="text-xs text-muted-foreground">
-              Free APK • Android 8.0+
+              {APK_URL ? 'Free APK • Android 8.0+' : 'Available shortly'}
             </p>
           </div>
         </div>
