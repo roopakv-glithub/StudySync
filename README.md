@@ -40,7 +40,8 @@ The website is designed to give users a clear understanding of how StudySync hel
 ---
 
 ## 📸 Website Preview
-
+Capture.PNG
+Capture1.PNG
 
 
 
