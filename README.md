@@ -41,17 +41,8 @@ The website is designed to give users a clear understanding of how StudySync hel
 
 ## 📸 Website Preview
 
-> Add screenshots of your website here.
 
-Example:
 
-```
-/screenshots/home.png
-/screenshots/features.png
-/screenshots/testimonials.png
-```
-
----
 
 ## 👨‍💻 Developer
 
